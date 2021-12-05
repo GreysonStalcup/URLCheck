@@ -12,10 +12,6 @@
         CURLOPT_URL => $apiUrl,
         CURLOPT_CUSTOMREQUEST => "POST",
         CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 30,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_POSTFIELDS => '{
          "client": {
             "clientId": "URLChecker",
@@ -34,10 +30,10 @@
         CURLOPT_HTTPHEADER => array(
             "cache-control: no cache",
             "Content-Type: application/json",
-            "postman-token: b05b8d34-85f2-49cf-0f8e-03686a71e4e9",
+            
             
         ),
-        CURLOPT_RETURNTRANSFER => 1,
+        
     ));
 
     $response = curl_exec($curl);
