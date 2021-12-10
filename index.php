@@ -20,7 +20,7 @@
          'threatEntries' =>['url' => $threatUrlTest] 
          ]
 ];
-    $encodedFields = json_encode($postFields);
+    $encodedFields = json_encode($postFields, JSON_UNESCAPED_SLASHES);
     echo $encodedFields;
     $curl = curl_init();
     curl_setopt_array($curl, array(
@@ -45,10 +45,10 @@
     } else {
         if($response){
             echo '<br><br>Response: <br> <br>' . $response;
-            
-            $threat = json_decode($response);
-            
-            echo $threat.matches.threatType;
+            $res = json_decode($response);
+
+           // echo $res['matches'];
+            echo '<br> Test: <br> ' . $res[0];            
         }   
     }
     curl_close($curl);
