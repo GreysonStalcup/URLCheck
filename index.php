@@ -29,7 +29,7 @@
         CURLOPT_POST => 1,
         CURLOPT_POSTFIELDS => $encodedFields,
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_HEADER => 1,
+        CURLOPT_HEADER => 0,
             
         CURLOPT_HTTPHEADER => ["Content-Type: application/json"]
             
@@ -45,9 +45,15 @@
         echo "error: " . $err;
     } else {
         if($response){
-            echo '<br><br>Response: <br> <br>' . $response;
+            //echo '<br><br>Response: <br> <br>' . $response;
             
-            
+            $r = json_decode($response, true);
+           
+            $threatType = $r['matches'][0]['threatType'];
+            $platformType = $r['matches'][0]['platformType'];
+            $maliciousUrl = $r['matches'][0]['threat']['url'];
+            $threatEntryType = $r['matches'][0]['threatEntryType'];
+
                
         }   
     }
@@ -68,7 +74,10 @@
 <body>
     <div>
         <h1>URL Checker</h1>
-        
+        <p>Threat type:  <?= $threatType; ?></p>
+        <p>Platform type: <?= $platformType ?> </p>
+        <p>Threat Entry Type: <?= $threatEntryType ?></p>
+        <p>Threat URL: <?= $maliciousUrl ?></p>
     </div>
 </body>
 </html>
