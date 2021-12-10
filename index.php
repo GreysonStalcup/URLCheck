@@ -39,20 +39,20 @@
     );
 
     $response = curl_exec($curl);
+    
     $err = curl_error($curl);
     if($err){
         echo "error: " . $err;
     } else {
         if($response){
             echo '<br><br>Response: <br> <br>' . $response;
-            $res = json_decode($response);
-
-           // echo $res['matches'];
-            echo '<br> Test: <br> ' . $res[0];            
+            
+            
+               
         }   
     }
     curl_close($curl);
-
+    //echo $response['matches'][0]['threatType'];  
     
     
 
