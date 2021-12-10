@@ -1,0 +1,19 @@
+body{
+    text-align: center;
+}
+#check-container{
+    text-align: center;
+    
+    width: 500px;
+    height: 500px;
+    
+}
+form{
+    display: inline-block;
+    width: 50%;
+    height: 50%;
+}
+#check-fields{
+    
+    text-align: center;
+}
